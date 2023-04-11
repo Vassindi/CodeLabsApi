@@ -10,9 +10,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2021_11_22_185403) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_10_173440) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "characters", force: :cascade do |t|
+    t.string "character_name"
+    t.string "costume"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "costumes", force: :cascade do |t|
+    t.string "head"
+    t.string "torso"
+    t.string "arms"
+    t.string "hands"
+    t.string "waist"
+    t.string "legs"
+    t.string "feet"
+    t.string "back"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "outfits", force: :cascade do |t|
+    t.string "character"
+    t.string "costume"
+    t.string "completed"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "roles", force: :cascade do |t|
     t.string "slug"
