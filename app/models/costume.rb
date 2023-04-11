@@ -1,3 +1,3 @@
 class Costume < ApplicationRecord
-    belongs_to :outfit
+    belongs_to :outfit :through => :character
 end
